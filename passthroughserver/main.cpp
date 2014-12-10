@@ -23,6 +23,9 @@
 #ifdef HAVE_WAYLAND
 #include "waylandplatform.h"
 #endif // HAVE_WAYLAND
+#ifdef HAVE_MIR
+#include "mirplatform.h"
+#endif
 #include "unknownplatform.h"
 
 #include <QGuiApplication>
@@ -100,6 +103,11 @@ QSharedPointer<Maliit::AbstractPlatform> createPlatform()
     if (QGuiApplication::platformName().startsWith("wayland")) {
         return QSharedPointer<Maliit::AbstractPlatform>(new Maliit::WaylandPlatform);
     } else
+#endif    
+#ifdef HAVE_MIR
+  if (QGuiApplication::platformName().startsWith("ubuntumirclient")) {
+      return QSharedPointer<Maliit::AbstractPlatform>(new Maliit::MirPlatform);
+  } else
 #endif
 #ifndef NOXCB
     if (QGuiApplication::platformName() == "xcb") {

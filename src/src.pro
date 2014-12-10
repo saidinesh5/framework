@@ -86,6 +86,11 @@ wayland {
     SERVER_SOURCES += waylandplatform.cpp
 }
 
+mir {
+    SERVER_HEADERS_PRIVATE += mirplatformconnection.h mirplatform.h
+    SERVER_SOURCES += mirplatformconnection.cpp mirplatform.cpp
+}
+
 SETTINGS_HEADERS_PRIVATE += \
         mimsettingsqsettings.h \
         mimsettings.h \
