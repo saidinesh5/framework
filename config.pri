@@ -138,6 +138,10 @@ wayland {
     DEFINES += HAVE_WAYLAND
 }
 
+mir {
+    DEFINES += HAVE_MIR
+}
+
 noxcb {
     DEFINES += NOXCB
 }
