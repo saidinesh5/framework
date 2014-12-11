@@ -75,7 +75,7 @@ void MirPlatformConnection::startLocalServer()
     }
 
     connect( m_localServer, SIGNAL(newConnection()),
-             this, SLOT( MIRPlatformPrivate::incomingConnectionFromMir() ) );
+             this, SLOT( onIncomingConnection() ) );
 
 
     if (!m_localServer->listen(socketFilePath)) {
