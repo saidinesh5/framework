@@ -33,7 +33,9 @@ void MirPlatform::setInputRegion(QWindow *window, const QRegion &region)
 {
     Q_UNUSED(window)
 
-    m_mirPlatformConnection->setGeometry(region.rects().first());
+    if (!region.rects().isEmpty()) {
+        m_mirPlatformConnection->setGeometry(region.rects().first());
+    }
 }
 
 }
