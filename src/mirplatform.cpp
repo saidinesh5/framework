@@ -14,6 +14,9 @@
 
 #include <QRegion>
 #include <QWindow>
+#include <QVariant>
+
+#include <ubuntu/application/ui/window_properties.h>
 
 namespace Maliit {
 
@@ -25,8 +28,8 @@ MirPlatform::MirPlatform():
 
 void MirPlatform::setupInputPanel(QWindow *window, Maliit::Position position)
 {
-    Q_UNUSED(window)
     Q_UNUSED(position)
+    window->setProperty("role", QVariant(U_ON_SCREEN_KEYBOARD_ROLE));
 }
 
 void MirPlatform::setInputRegion(QWindow *window, const QRegion &region)
